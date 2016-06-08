@@ -14,16 +14,39 @@ class m130524_201442_init extends Migration
 
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull()->unique(),
+            'name' => $this->string()->notNull(),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string()->unique(),
             'email' => $this->string()->notNull()->unique(),
+            'user_type' => $this->smallInteger()->notNull()->defaultValue(0),
 
-            'status' => $this->smallInteger()->notNull()->defaultValue(10),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1),
+            'is_deleted' => $this->smallInteger()->notNull()->defaultValue(0),
+            'created_by' => $this->integer()->notNull(),
+            'created_date' => $this->dateTime()->notNull(),
+            'modified_by' => $this->integer(),
+            'modified_date' => $this->dateTime(),
         ], $tableOptions);
+
+        /**
+         * Adding Default Data
+         * For Admin User
+         */
+        $this->insert('{{%user}}', [
+            'name' => 'Admin',
+            'auth_key' => 'OO3x7-miqdPlcr2PXDSm8I6fVfM3AImT',
+            'password_hash' => '$2y$13$EMbP2Nt2O3wiC34kblyLoONzuFTSEiu4af7dZL1XHFnZX34FlxEH.',
+            'password_reset_token' => '',
+            'email' => 'admin@bananabandy.com',
+            'user_type' => '1',
+            'status' => '1',
+            'is_deleted' => '0',
+            'created_by' => '0',
+            'created_date' => '2016-06-07 00:18:40',
+            'modified_by' => '',
+            'modified_date' => '',
+        ]);
     }
 
     public function down()

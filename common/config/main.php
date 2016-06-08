@@ -11,5 +11,12 @@ return [
             'port' => 6379,
             'database' => 0,
         ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=bananabandy_new',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+        ],
     ],
 ];

@@ -10,12 +10,19 @@ $this->title = 'Create Bad Words';
 $this->params['breadcrumbs'][] = ['label' => 'Bad Words', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="bad-words-create">
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"><?= Html::encode($this->title) ?></h3>
+                </div><!-- /.box-header -->
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
-</div>
+                <?= $this->render('_form', [
+                    'model' => $model,
+                ]) ?>
+            </div>
+        </div><!-- /.col-->
+    </div><!-- ./row -->
+</section><!-- /.content -->
