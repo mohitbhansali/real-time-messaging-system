@@ -41,6 +41,11 @@ class UserController extends Controller
         ];
     }
 
+    public function beforeAction($action) {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
+
     /**
      * Lists all User models.
      * @return mixed
