@@ -141,17 +141,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays design page.
-     *
-     * @return mixed
-     */
-    public function actionDesign()
-    {
-        $this->layout = false;
-        return $this->render('design');
-    }
-
-    /**
      * Requests password reset.
      *
      * @return mixed
